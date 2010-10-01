@@ -1,0 +1,14 @@
+--- This file is part of LuaDist project
+
+name = "simulua"
+version = "0.1"
+
+desc = "Simulua - Discrete-event simulation in Lua."
+author = "Luis Carvalho"
+license = "MIT"
+url = "http://luaforge.net/projects/simulua"
+maintainer = "Peter Kapec"
+
+depends = {
+	"lua ~> 5.1"
+}
