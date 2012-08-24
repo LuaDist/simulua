@@ -7,6 +7,7 @@
 project ( simulua C )
 cmake_minimum_required ( VERSION 2.8 )
 include ( cmake/dist.cmake )
+include ( lua )
 
 # Build and install C modules
 include_directories ( lib )
