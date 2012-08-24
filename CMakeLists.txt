@@ -1,33 +1,28 @@
-# Copyright (C) 2007-2009 LuaDist.
+# Copyright (C) 2007-2012 LuaDist.
 # Created by Peter Kapec
 # Redistribution and use of this file is allowed according to the terms of the MIT license.
 # For details see the COPYRIGHT file distributed with LuaDist.
 # Please note that the package source code is licensed under its own license.
 
-PROJECT(simulua C)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-INCLUDE(dist.cmake)
+project ( simulua C )
+cmake_minimum_required ( VERSION 2.8 )
+include ( cmake/dist.cmake )
 
 # Build and install C modules
-INCLUDE_DIRECTORIES(lib)
+include_directories ( lib )
 
-ADD_LUA_MODULE(rng lib/ranlib.c lib/mt.c lib/rng.c lib/rng.def )
-ADD_LUA_MODULE(cdf lib/dcdflib.c lib/ipmpar.c lib/cdf.c lib/cdf.def )
-ADD_LUA_MODULE(binomial lib/binomial.c lib/binomial.def )
-ADD_LUA_MODULE(queue lib/queue.c lib/queue.def )
-ADD_LUA_MODULE(stack lib/stack.c lib/stack.def )
+install_lua_module ( rng lib/ranlib.c lib/mt.c lib/rng.c lib/rng.def )
+install_lua_module ( cdf lib/dcdflib.c lib/ipmpar.c lib/cdf.c lib/cdf.def )
+install_lua_module ( binomial lib/binomial.c lib/binomial.def )
+install_lua_module ( queue lib/queue.c lib/queue.def )
+install_lua_module ( stack lib/stack.c lib/stack.def )
+install_lua_module ( simulua simulua.lua )
 
 # Build Simulua standalone interpreter
-#~ ADD_EXECUTABLE (simulua
-#~ 	etc/simulua.c etc/slinit.c
-#~ 	lib/rng.c lib/ranlib.c lib/mt.c lib/cdf.c lib/dcdflib.c lib/ipmpar.c lib/binomial.c lib/queue.c lib/stack.c
-#~ )
-#~ TARGET_LINK_LIBRARIES(simulua ${LUA_LIBRARIES})
-
-# Install Lua modules
-INSTALL (FILES simulua.lua DESTINATION ${INSTALL_LMOD})
-INSTALL (TARGETS rng cdf binomial queue stack DESTINATION ${INSTALL_CMOD})
+add_executable (simulua etc/simulua.c etc/slinit.c lib/rng.c lib/ranlib.c lib/mt.c lib/cdf.c
+lib/dcdflib.c lib/ipmpar.c lib/binomial.c lib/queue.c lib/stack.c )
+target_link_libraries ( simulua ${LUA_LIBRARIES} )
 
 # Install all files and documentation
-INSTALL (DIRECTORY docs/ DESTINATION ${INSTALL_DOC})
-INSTALL (DIRECTORY examples/ DESTINATION ${INSTALL_EXAMPLE})
+install_doc ( docs/ )
+install_example ( examples/ )
