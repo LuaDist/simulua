@@ -20,9 +20,9 @@ install_lua_module ( stack lib/stack.c lib/stack.def )
 install_lua_module ( simulua simulua.lua )
 
 # Build Simulua standalone interpreter
-add_executable (simulua etc/simulua.c etc/slinit.c lib/rng.c lib/ranlib.c lib/mt.c lib/cdf.c
-lib/dcdflib.c lib/ipmpar.c lib/binomial.c lib/queue.c lib/stack.c )
-target_link_libraries ( simulua ${LUA_LIBRARIES} )
+#add_executable (simulua etc/simulua.c etc/slinit.c lib/rng.c lib/ranlib.c lib/mt.c lib/cdf.c
+#lib/dcdflib.c lib/ipmpar.c lib/binomial.c lib/queue.c lib/stack.c )
+#target_link_libraries ( simulua ${LUA_LIBRARIES} )
 
 # Install all files and documentation
 install_doc ( docs/ )
