@@ -1,0 +1,40 @@
+type = "x86"
+arch = "Windows"
+author = "Luis Carvalho"
+depends = {
+[[lua ~> 5.1]],
+}
+
+desc = "Simulua - Discrete-event simulation in Lua."
+version = "0.1"
+maintainer = "Peter Kapec"
+files = {
+Runtime = {
+[[lib\lua\rng.dll]],
+[[lib\lua\cdf.dll]],
+[[lib\lua\binomial.dll]],
+[[lib\lua\queue.dll]],
+[[lib\lua\stack.dll]],
+[[lib\lua\simulua.lua]],
+}
+,
+Documentation = {
+[[share\simulua\doc\\index.html]],
+[[share\simulua\doc\\style.css]],
+}
+,
+Example = {
+[[share\simulua\example\\carwash.lua]],
+[[share\simulua\example\\interference.lua]],
+[[share\simulua\example\\market.lua]],
+[[share\simulua\example\\mill.lua]],
+[[share\simulua\example\\office.lua]],
+[[share\simulua\example\\receptionist.lua]],
+[[share\simulua\example\\warehouse.lua]],
+}
+,
+}
+
+license = "MIT"
+name = "simulua"
+url = "http://luaforge.net/projects/simulua"
